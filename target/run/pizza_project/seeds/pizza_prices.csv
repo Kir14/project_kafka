@@ -1,0 +1,14 @@
+
+    
+    
+    
+    create table "pizza_db"."public"."pizza_prices" ("pizza_type" text,"price" float8)
+  ;
+    -- dbt seed --
+    
+          insert into "pizza_db"."public"."pizza_prices" ("pizza_type", "price") values
+          (%s,%s),(%s,%s),(%s,%s),(%s,%s)
+      
+
+;
+  

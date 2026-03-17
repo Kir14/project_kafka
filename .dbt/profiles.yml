@@ -1,0 +1,11 @@
+project_kafka:
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      port: 5432
+      user: admin
+      pass: pass123
+      dbname: pizza_db
+      schema: public
+  target: dev

@@ -1,0 +1,1 @@
+{"_invocation_id": "20650f42-96e4-4598-b94c-0be2be45aa64", "linked": {"0": {"name": "source.pizza_project.main.raw_pizza_orders", "type": "source", "succ": [2]}, "1": {"name": "seed.pizza_project.pizza_prices", "type": "seed", "succ": [2]}, "2": {"name": "model.pizza_project.revenue_by_pizza", "type": "model"}}}

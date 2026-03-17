@@ -1,6 +1,14 @@
 
+  
+    
 
-{{ config(materialized='table') }}
+  create  table "pizza_db"."public"."revenue_by_pizza__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
 
 WITH
 live_orders AS (
@@ -11,14 +19,14 @@ live_orders AS (
         , order_status
         , received_at
     FROM
-        {{source('main', 'raw_pizza_orders')}}
+        "pizza_db"."public"."raw_pizza_orders"
 )
 , price_list AS (
     SELECT
         pizza_type
         , price
     FROM
-        {{ref('pizza_prices')}}
+        "pizza_db"."public"."pizza_prices"
 )
 SELECT
     lo.pizza_type
@@ -32,3 +40,5 @@ INNER JOIN
         ON lo.pizza_type = pl.pizza_type
 GROUP BY
     1
+  );
+  

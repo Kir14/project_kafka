@@ -1,7 +1,5 @@
 
 
-{{ config(materialized='table') }}
-
 WITH
 live_orders AS (
     SELECT
@@ -11,14 +9,14 @@ live_orders AS (
         , order_status
         , received_at
     FROM
-        {{source('main', 'raw_pizza_orders')}}
+        "pizza_db"."public"."raw_pizza_orders"
 )
 , price_list AS (
     SELECT
         pizza_type
         , price
     FROM
-        {{ref('pizza_prices')}}
+        "pizza_db"."public"."pizza_prices"
 )
 SELECT
     lo.pizza_type

@@ -1,0 +1,23 @@
+name: 'pizza_project'
+version: '1.0.0'
+config-version: 2
+
+# This tells dbt which profile in your ~/.dbt/profiles.yml to use
+profile: 'project_kafka' 
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  pizza_project:
+    # This applies the 'table' setting to everything in models/marts/
+    marts:
+      +materialized: table

@@ -1,0 +1,8 @@
+version: 1
+
+sources:
+  - name: main  # This is the first argument in your {{ source('main', ...) }}
+    database: pizza_db
+    schema: public
+    tables:
+      - name: raw_pizza_orders # This is the second argument
