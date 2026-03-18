@@ -1,9 +1,7 @@
 
     
     
-    
-    create table "pizza_db"."public"."pizza_prices" ("pizza_type" text,"price" float8)
-  ;
+    truncate table "pizza_db"."public"."pizza_prices";
     -- dbt seed --
     
           insert into "pizza_db"."public"."pizza_prices" ("pizza_type", "price") values

@@ -1,0 +1,11 @@
+version: 1
+
+models:
+  - name: revenue_by_pizza
+    columns:
+      - name: pizza_type
+        tests:
+          - not_null
+          - relationships:
+              to: ref('pizza_prices')
+              field: pizza_type
