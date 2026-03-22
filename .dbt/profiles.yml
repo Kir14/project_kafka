@@ -2,7 +2,7 @@ project_kafka:
   outputs:
     dev:
       type: postgres
-      host: localhost
+      host: postgres
       port: 5432
       user: admin
       pass: pass123
