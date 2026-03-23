@@ -2569,3 +2569,127 @@ drop table if exists "pizza_db"."public"."revenue_by_pizza__dbt_backup" cascade
 [0m22:09:45.604120 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x726775e0a450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72677930bbf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x726775b2c920>]}
 [0m22:09:45.604834 [debug] [MainThread]: Flushing usage events
 [0m22:09:46.623821 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m09:23:03.535795 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bcedd9cb7a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bcedd1f4b00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bcedffda7e0>]}
+
+
+============================== 09:23:03.693982 | de63ef80-b262-4d39-ada4-7d358a2be85b ==============================
+[0m09:23:03.693982 [info ] [MainThread]: Running with dbt=1.11.6
+[0m09:23:03.697660 [debug] [MainThread]: running dbt with arguments {'use_experimental_parser': 'False', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt run --profiles-dir .dbt', 'log_cache_events': 'False', 'warn_error': 'None', 'no_print': 'None', 'quiet': 'False', 'use_colors': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'debug': 'False', 'log_format': 'default', 'log_path': '/home/kirill/Documents/small_projects/project_kafka/logs', 'indirect_selection': 'eager', 'profiles_dir': '.dbt', 'cache_selected_only': 'False', 'fail_fast': 'False', 'static_parser': 'True', 'version_check': 'True', 'partial_parse': 'True', 'printer_width': '80', 'write_json': 'True', 'empty': 'False'}
+[0m09:23:04.966162 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'de63ef80-b262-4d39-ada4-7d358a2be85b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bcedd9cb950>]}
+[0m09:23:05.219675 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'de63ef80-b262-4d39-ada4-7d358a2be85b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bcedfb4d190>]}
+[0m09:23:05.251964 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m09:23:07.023659 [debug] [MainThread]: checksum: ec27062d18352e9cfca161c166fcc73d2201661a23a3cf3c89196a27f32cfcb8, vars: {}, profile: , target: , version: 1.11.6
+[0m09:23:07.509703 [info ] [MainThread]: Unable to do partial parsing because profile has changed
+[0m09:23:07.510640 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'de63ef80-b262-4d39-ada4-7d358a2be85b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bcedda2a960>]}
+[0m09:23:10.985712 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `relationships` defined on 'revenue_by_pizza'
+in package 'pizza_project' (models/marts/schema.yml). Arguments to generic tests
+should be nested under the `arguments` property.
+[0m09:23:10.986595 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': 'de63ef80-b262-4d39-ada4-7d358a2be85b', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bcedeed18e0>]}
+[0m09:23:11.352009 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'de63ef80-b262-4d39-ada4-7d358a2be85b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bcedcfaef30>]}
+[0m09:23:11.513612 [debug] [MainThread]: Wrote artifact WritableManifest to /home/kirill/Documents/small_projects/project_kafka/target/manifest.json
+[0m09:23:11.590996 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/kirill/Documents/small_projects/project_kafka/target/semantic_manifest.json
+[0m09:23:12.115650 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'de63ef80-b262-4d39-ada4-7d358a2be85b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bced9b95550>]}
+[0m09:23:12.117281 [info ] [MainThread]: Found 1 model, 1 seed, 2 data tests, 1 source, 464 macros
+[0m09:23:12.118828 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'de63ef80-b262-4d39-ada4-7d358a2be85b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bcedd0de990>]}
+[0m09:23:12.125780 [info ] [MainThread]: 
+[0m09:23:12.127435 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m09:23:12.128994 [info ] [MainThread]: 
+[0m09:23:12.132500 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m09:23:12.136293 [debug] [ThreadPool]: Acquiring new postgres connection 'list_pizza_db'
+[0m09:23:12.702246 [debug] [ThreadPool]: Using postgres connection "list_pizza_db"
+[0m09:23:12.703702 [debug] [ThreadPool]: On list_pizza_db: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "project_kafka", "target_name": "dev", "connection_name": "list_pizza_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m09:23:12.704957 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m09:23:12.709183 [debug] [ThreadPool]: Postgres adapter: Got a retryable error when attempting to open a postgres connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+could not translate host name "postgres" to address: Temporary failure in name resolution
+
+[0m09:23:12.712333 [debug] [ThreadPool]: Postgres adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "project_kafka", "target_name": "dev", "connection_name": "list_pizza_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m09:23:12.714280 [debug] [ThreadPool]: Postgres adapter: Rolling back transaction.
+[0m09:23:12.715908 [debug] [ThreadPool]: Postgres adapter: Error running SQL: macro list_schemas
+[0m09:23:12.717138 [debug] [ThreadPool]: Postgres adapter: Rolling back transaction.
+[0m09:23:12.718675 [debug] [ThreadPool]: On list_pizza_db: No close available on handle
+[0m09:23:12.721088 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m09:23:12.722398 [debug] [MainThread]: Connection 'list_pizza_db' was properly closed.
+[0m09:23:12.723579 [info ] [MainThread]: 
+[0m09:23:12.725177 [info ] [MainThread]: Finished running  in 0 hours 0 minutes and 0.59 seconds (0.59s).
+[0m09:23:12.727418 [error] [MainThread]: Encountered an error:
+Database Error
+  could not translate host name "postgres" to address: Temporary failure in name resolution
+  
+[0m09:23:12.729433 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 1 occurrence
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m09:23:12.775488 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 9.4799385, "process_in_blocks": "101272", "process_kernel_time": 0.869291, "process_mem_max_rss": "127664", "process_out_blocks": "1848", "process_user_time": 9.626152}
+[0m09:23:12.777934 [debug] [MainThread]: Command `dbt run` failed at 09:23:12.777557 after 9.48 seconds
+[0m09:23:12.780698 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bceddf5dd30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bced9b4bcb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bced9b48320>]}
+[0m09:23:12.782966 [debug] [MainThread]: Flushing usage events
+[0m09:23:13.474784 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m09:24:22.085654 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70bfbcfda630>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70bfbc356e70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70bfbca76c30>]}
+
+
+============================== 09:24:22.090821 | ff5c6bfb-5248-4ac5-9759-3628a62a747d ==============================
+[0m09:24:22.090821 [info ] [MainThread]: Running with dbt=1.11.6
+[0m09:24:22.092636 [debug] [MainThread]: running dbt with arguments {'send_anonymous_usage_stats': 'True', 'profiles_dir': '.dbt', 'empty': 'None', 'log_path': '/home/kirill/Documents/small_projects/project_kafka/logs', 'use_colors': 'True', 'no_print': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt seed --profiles-dir .dbt', 'fail_fast': 'False', 'log_format': 'default', 'target_path': 'None', 'cache_selected_only': 'False', 'debug': 'False', 'indirect_selection': 'eager', 'introspect': 'True', 'static_parser': 'True', 'log_cache_events': 'False', 'printer_width': '80', 'use_experimental_parser': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'version_check': 'True', 'warn_error': 'None', 'write_json': 'True', 'quiet': 'False'}
+[0m09:24:22.388596 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ff5c6bfb-5248-4ac5-9759-3628a62a747d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70bfbc0ba570>]}
+[0m09:24:22.504602 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'ff5c6bfb-5248-4ac5-9759-3628a62a747d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70bfbc15ade0>]}
+[0m09:24:22.505765 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m09:24:22.687367 [debug] [MainThread]: checksum: ec27062d18352e9cfca161c166fcc73d2201661a23a3cf3c89196a27f32cfcb8, vars: {}, profile: , target: , version: 1.11.6
+[0m09:24:23.820046 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m09:24:23.822443 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m09:24:23.824720 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m09:24:24.093980 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'ff5c6bfb-5248-4ac5-9759-3628a62a747d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70bfbb30a0f0>]}
+[0m09:24:24.269768 [debug] [MainThread]: Wrote artifact WritableManifest to /home/kirill/Documents/small_projects/project_kafka/target/manifest.json
+[0m09:24:24.294965 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/kirill/Documents/small_projects/project_kafka/target/semantic_manifest.json
+[0m09:24:24.810446 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'ff5c6bfb-5248-4ac5-9759-3628a62a747d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70bfba7877d0>]}
+[0m09:24:24.813097 [info ] [MainThread]: Found 1 model, 1 seed, 2 data tests, 1 source, 464 macros
+[0m09:24:24.815200 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ff5c6bfb-5248-4ac5-9759-3628a62a747d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70bfbb3119a0>]}
+[0m09:24:24.822879 [info ] [MainThread]: 
+[0m09:24:24.825108 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m09:24:24.826793 [info ] [MainThread]: 
+[0m09:24:24.829746 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m09:24:24.833923 [debug] [ThreadPool]: Acquiring new postgres connection 'list_pizza_db'
+[0m09:24:25.077237 [debug] [ThreadPool]: Using postgres connection "list_pizza_db"
+[0m09:24:25.079239 [debug] [ThreadPool]: On list_pizza_db: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "project_kafka", "target_name": "dev", "connection_name": "list_pizza_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m09:24:25.080644 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m09:24:25.160551 [debug] [ThreadPool]: Postgres adapter: Got a retryable error when attempting to open a postgres connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+could not translate host name "postgres" to address: Temporary failure in name resolution
+
+[0m09:24:25.163866 [debug] [ThreadPool]: Postgres adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "project_kafka", "target_name": "dev", "connection_name": "list_pizza_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m09:24:25.165295 [debug] [ThreadPool]: Postgres adapter: Rolling back transaction.
+[0m09:24:25.167672 [debug] [ThreadPool]: Postgres adapter: Error running SQL: macro list_schemas
+[0m09:24:25.170194 [debug] [ThreadPool]: Postgres adapter: Rolling back transaction.
+[0m09:24:25.172516 [debug] [ThreadPool]: On list_pizza_db: No close available on handle
+[0m09:24:25.175798 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m09:24:25.177898 [debug] [MainThread]: Connection 'list_pizza_db' was properly closed.
+[0m09:24:25.179530 [info ] [MainThread]: 
+[0m09:24:25.181660 [info ] [MainThread]: Finished running  in 0 hours 0 minutes and 0.35 seconds (0.35s).
+[0m09:24:25.184066 [error] [MainThread]: Encountered an error:
+Database Error
+  could not translate host name "postgres" to address: Temporary failure in name resolution
+  
+[0m09:24:25.199230 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": false, "command_wall_clock_time": 3.208376, "process_in_blocks": "38720", "process_kernel_time": 0.66181, "process_mem_max_rss": "119672", "process_out_blocks": "944", "process_user_time": 6.047545}
+[0m09:24:25.201236 [debug] [MainThread]: Command `dbt seed` failed at 09:24:25.200783 after 3.21 seconds
+[0m09:24:25.203494 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70bfbc83b230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70bfbb33e450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70bfba787d40>]}
+[0m09:24:25.205984 [debug] [MainThread]: Flushing usage events
+[0m09:24:25.897878 [debug] [MainThread]: An error was encountered while trying to flush usage events
