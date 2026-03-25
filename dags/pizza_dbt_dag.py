@@ -14,6 +14,12 @@ with DAG(
     catchup=False
 ) as dag:
 
+    #Run Kafka
+    ingest_kafka = BashOperator(
+        task_id='kafka_consumer',
+        bash_command='cd /opt/airflow/project && python3 kafka_to_postgress.py'
+    )
+
     # Run dbt run
     run_seed = BashOperator(
         task_id='dbt_run_seed',
@@ -48,4 +54,4 @@ with DAG(
         '''
     )
 
-    run_seed >> run_revenue >> test_dbt
+    [ingest_kafka >> test_dbt, run_seed] >> run_revenue

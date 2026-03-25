@@ -12,20 +12,25 @@ services:
       - zookeeper
     ports:
       - "9092:9092"
+      - "29092:29092"
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+    env_file:
+      - ./.env
 
   postgres:
     image: postgres:15
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: pass123
-      POSTGRES_DB: pizza_db
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
@@ -41,13 +46,15 @@ services:
       - ./dags:/opt/airflow/dags
       - .:/opt/airflow/project
     environment:
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:pass123@postgres/pizza_db
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${DB_USER}:${DB_PASS}@postgres:5432/${DB_NAME}
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__CORE__LOAD_EXAMPLES: 0
-      AIRFLOW__CORE__FERNET_KEY: P5I6X6l7c-l-zYoKdmcn6EL_Zg_tLO-tWcau2hn0OdU=
+      AIRFLOW__CORE__FERNET_KEY: ${FERNET_KEY}
       AIRFLOW__WEBSERVER__SECRET_KEY: secret_key_web_server
     depends_on:
       - postgres
+    env_file:
+      - ./.env
 
   airflow-scheduler:
     build: .  # This looks for the Dockerfile in the current folder
@@ -57,24 +64,28 @@ services:
       - ./dags:/opt/airflow/dags
       - .:/opt/airflow/project
     environment:
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:pass123@postgres/pizza_db
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${DB_USER}:${DB_PASS}@postgres:5432/${DB_NAME}
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__CORE__FERNET_KEY: P5I6X6l7c-l-zYoKdmcn6EL_Zg_tLO-tWcau2hn0OdU=
+      AIRFLOW__CORE__FERNET_KEY: ${FERNET_KEY}
       AIRFLOW__WEBSERVER__SECRET_KEY: secret_key_web_server
     depends_on:
       - postgres
+    env_file:
+      - ./.env
 
   airflow-init:
     build: .  # This looks for the Dockerfile in the current folder
     # image: apache/airflow:2.8.1
     command: version
     environment:
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:pass123@postgres/pizza_db
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${DB_USER}:${DB_PASS}@postgres:5432/${DB_NAME}
     entrypoint: /bin/bash
     # This initializes the DB and creates your admin user
     command: -c "airflow db init && airflow users create --username admin --password admin --firstname Kirill --lastname Project --role Admin --email admin@example.com"
     depends_on:
       - postgres
+    env_file:
+      - ./.env
 
 volumes:
   postgres_data:

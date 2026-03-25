@@ -5,8 +5,11 @@ from kafka import KafkaProducer
 
 #Initilaze the Producer
 producer = KafkaProducer(
-    bootstrap_servers=['localhost:9092'],
-    value_serializer=lambda v: json.dumps(v).encode('utf-8') # Convert dict to JSON
+    bootstrap_servers=['localhost:29092'],
+    value_serializer=lambda v: json.dumps(v).encode('utf-8'), # Convert dict to JSON
+    # Ensure Kafka confirms receipt of the order
+    acks='all',
+    retries=5
 )
 
 orders = ["Margherita", "Pepperoni", "Hawaiian", "Veggie"]

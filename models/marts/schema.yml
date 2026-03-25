@@ -1,7 +1,7 @@
 version: 1
 
 models:
-  - name: revenue_by_pizza
+  - name: raw_pizza_orders
     columns:
       - name: pizza_type
         tests:

@@ -8,4 +8,4 @@ RUN apt-get update && apt-get install -y git && apt-get clean
 USER airflow
 
 # Install dbt for postgres
-RUN pip install --no-cache-dir dbt-postgres
+RUN pip install --no-cache-dir kafka-python-ng psycopg2-binary dbt-postgres
