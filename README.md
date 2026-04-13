@@ -3,17 +3,12 @@
 This project streams random pizza orders through Kafka, ingests them into PostgreSQL, and uses dbt to transform and validate the data quality.
 
 # 📂 Project Architecture
-Producer: Python script running locally, simulating incoming pizza orders.
-
-Streaming: Apache Kafka (Dockerized) handles the order queue.
-
-Orchestration: Apache Airflow schedules and monitors the data flow.
-
-Ingestion: Python Consumer (via Airflow) reads Kafka offsets and writes to Postgres.
-
-Transformation: dbt processes raw data into revenue models and analytical views.
-
-Storage: PostgreSQL acts as the central data warehouse.
+Producer: Python script running locally, simulating incoming pizza orders.  
+Streaming: Apache Kafka (Dockerized) handles the order queue.  
+Orchestration: Apache Airflow schedules and monitors the data flow.  
+Ingestion: Python Consumer (via Airflow) reads Kafka offsets and writes to Postgres.  
+Transformation: dbt processes raw data into revenue models and analytical views.  
+Storage: PostgreSQL acts as the central data warehouse.  
 
 ## 📂 Project Structure
 ```text
