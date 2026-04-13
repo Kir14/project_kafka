@@ -11,6 +11,7 @@ Transformation: dbt processes raw data into revenue models and analytical views.
 Storage: PostgreSQL acts as the central data warehouse.
 
 ## 📂 Project Structure
+```text
 project_kafka/
 ├── dags/                       # Airflow DAG definitions
 │   └── pizza_dbt_dag.py        # Main pipeline orchestration
